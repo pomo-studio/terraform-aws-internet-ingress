@@ -8,5 +8,6 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
-- Scaffolded the `internet-ingress` blueprint: public front door over private
-  origins with edge blue/green, composing the three ingress components.
+- The `internet-ingress` blueprint: one VPC origin per deployment, a CloudFront
+  distribution with a deployment-aware cache policy, and the edge router wired
+  into it. It composes the three ingress components into one root module.

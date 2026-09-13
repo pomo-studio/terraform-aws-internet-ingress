@@ -15,21 +15,33 @@ variable "acm_certificate_arn" {
   default     = null
 }
 
+variable "default_root_object" {
+  description = "Object CloudFront returns for requests to the root URL"
+  type        = string
+  default     = null
+}
+
 variable "deployments" {
-  description = "Deployment colours keyed by name, each with an existing private origin ARN"
+  description = "Deployments keyed by name. Each names an existing private origin, by ARN and domain, and becomes an origin on the distribution."
   type = map(object({
-    origin_arn = string
+    origin_arn  = string
+    domain_name = string
   }))
 }
 
 variable "routing" {
-  description = "Rollout state. active is the deployment that receives traffic, weight is the percentage sent to the other deployment, and pin_cookie keeps a viewer on a specific deployment."
+  description = "Rollout state. active is the deployment that receives traffic, weight is the percentage sent to the other deployment, and pin_cookie keeps a viewer on one deployment."
   type = object({
     active     = string
     weight     = optional(number, 0)
     pin_cookie = optional(string)
   })
-  default = null
+}
+
+variable "origin_protocol_policy" {
+  description = "Protocol the distribution uses to reach the origins (http-only, match-viewer, or https-only)"
+  type        = string
+  default     = "https-only"
 }
 
 variable "enable_waf" {
@@ -54,12 +66,6 @@ variable "logging_bucket" {
   description = "S3 bucket for standard access logs. Required when enable_logging is true."
   type        = string
   default     = null
-}
-
-variable "enable_dr" {
-  description = "Add a failover origin per deployment for a second region"
-  type        = bool
-  default     = false
 }
 
 variable "tags" {

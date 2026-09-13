@@ -9,8 +9,9 @@ plugin "aws" {
   source  = "github.com/terraform-linters/tflint-ruleset-aws"
 }
 
-# Inputs are declared ahead of the resources that consume them while the module
-# interface is settled. Re-enable once those resources land.
-rule "terraform_unused_declarations" {
+# The component modules are referenced at main while the blueprint is
+# pre-release, so the integration test tracks their current state. Pin each
+# source to a release tag before the blueprint itself is tagged.
+rule "terraform_module_pinned_source" {
   enabled = false
 }

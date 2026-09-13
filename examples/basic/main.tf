@@ -1,5 +1,5 @@
 terraform {
-  required_version = ">= 1.5.0"
+  required_version = ">= 1.9.0"
 
   required_providers {
     aws = {
@@ -18,8 +18,14 @@ module "orders_ingress" {
   acm_certificate_arn = "arn:aws:acm:us-east-1:123456789012:certificate/11111111-2222-3333-4444-555555555555"
 
   deployments = {
-    blue  = { origin_arn = "arn:aws:elasticloadbalancing:us-east-1:123456789012:loadbalancer/app/orders-blue/50dc6c495c0c9188" }
-    green = { origin_arn = "arn:aws:elasticloadbalancing:us-east-1:123456789012:loadbalancer/app/orders-green/50dc6c495c0c9188" }
+    blue = {
+      origin_arn  = "arn:aws:elasticloadbalancing:us-east-1:123456789012:loadbalancer/app/orders-blue/50dc6c495c0c9188"
+      domain_name = "orders-blue.internal.example.com"
+    }
+    green = {
+      origin_arn  = "arn:aws:elasticloadbalancing:us-east-1:123456789012:loadbalancer/app/orders-green/50dc6c495c0c9188"
+      domain_name = "orders-green.internal.example.com"
+    }
   }
 
   routing = {
