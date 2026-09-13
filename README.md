@@ -11,7 +11,7 @@ A reusable customer-facing front door: CloudFront terminates traffic, reaches pr
 
 Reach for this blueprint when you have an application behind a private load balancer and you want a front door with a certificate, optional WAF, logging, and edge blue/green, without building the same CloudFront stack each time.
 
-The blueprint does not create the load balancer or the backend, and authentication is out of scope. You pass the existing private origin ARNs; the module owns the ingress.
+The blueprint does not create the load balancer or the backend, and authentication is out of scope. You pass the existing private origin ARNs; the module owns the ingress. The VPC behind each origin needs an internet gateway, which CloudFront requires for VPC origins.
 
 ## Quickstart
 
