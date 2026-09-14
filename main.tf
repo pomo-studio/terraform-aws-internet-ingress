@@ -5,7 +5,7 @@ locals {
 
 module "vpc_origin" {
   for_each = var.deployments
-  source   = "git::https://github.com/pomo-studio/terraform-aws-cloudfront-vpc-origin.git?ref=main"
+  source   = "git::https://github.com/pomo-studio/terraform-aws-cloudfront-vpc-origin.git?ref=v0.1.0"
 
   name                   = "${var.name}-${each.key}"
   origin_arn             = each.value.origin_arn
@@ -14,7 +14,7 @@ module "vpc_origin" {
 }
 
 module "edge_router" {
-  source = "git::https://github.com/pomo-studio/terraform-aws-cloudfront-edge-router.git?ref=main"
+  source = "git::https://github.com/pomo-studio/terraform-aws-cloudfront-edge-router.git?ref=v0.1.0"
 
   name              = var.name
   deployments       = local.deployment_ids
@@ -25,7 +25,7 @@ module "edge_router" {
 }
 
 module "frontdoor" {
-  source = "git::https://github.com/pomo-studio/terraform-aws-cloudfront-frontdoor.git?ref=main"
+  source = "git::https://github.com/pomo-studio/terraform-aws-cloudfront-frontdoor.git?ref=v0.1.0"
 
   name                = var.name
   aliases             = var.aliases

@@ -26,5 +26,6 @@ jobs:
     with:
       workspace: ${{ inputs.workspace }}
       skip_destroy: ${{ inputs.skip_destroy }}
+      timeout_minutes: 150
     secrets:
       TF_API_TOKEN: ${{ secrets.TF_API_TOKEN }}
