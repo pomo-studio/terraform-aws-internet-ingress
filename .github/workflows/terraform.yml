@@ -45,7 +45,7 @@ jobs:
           - examples/live
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v4
       - name: Format check
@@ -63,7 +63,7 @@ jobs:
     needs: [validate]
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v4
       - name: Initialize without a state backend
@@ -76,7 +76,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
       - name: Setup TFLint
         uses: terraform-linters/setup-tflint@v6
       - name: Initialize TFLint
@@ -89,7 +89,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
       - name: Verify generated reference is current
         uses: terraform-docs/gh-actions@v1.4.1
         with:
