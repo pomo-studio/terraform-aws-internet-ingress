@@ -93,7 +93,7 @@ No providers.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_edge_router"></a> [edge\_router](#module\_edge\_router) | git::https://github.com/pomo-studio/terraform-aws-cloudfront-edge-router.git | v0.1.0 |
+| <a name="module_edge_router"></a> [edge\_router](#module\_edge\_router) | git::https://github.com/pomo-studio/terraform-aws-cloudfront-edge-router.git | v0.1.1 |
 | <a name="module_frontdoor"></a> [frontdoor](#module\_frontdoor) | git::https://github.com/pomo-studio/terraform-aws-cloudfront-frontdoor.git | v0.1.0 |
 | <a name="module_vpc_origin"></a> [vpc\_origin](#module\_vpc\_origin) | git::https://github.com/pomo-studio/terraform-aws-cloudfront-vpc-origin.git | v0.1.0 |
 
