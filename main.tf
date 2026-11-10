@@ -14,7 +14,7 @@ module "vpc_origin" {
 }
 
 module "edge_router" {
-  source = "git::https://github.com/pomo-studio/terraform-aws-cloudfront-edge-router.git?ref=v0.1.0"
+  source = "git::https://github.com/pomo-studio/terraform-aws-cloudfront-edge-router.git?ref=v0.1.1"
 
   name              = var.name
   deployments       = local.deployment_ids
