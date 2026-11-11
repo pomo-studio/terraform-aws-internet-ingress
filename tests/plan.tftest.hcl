@@ -6,6 +6,12 @@
 # acceptance workflow proves the same stack on AWS.
 
 mock_provider "aws" {
+  mock_resource "aws_lambda_layer_version" {
+    defaults = {
+      arn = "arn:aws:lambda:us-east-1:123456789012:layer:signing:1"
+    }
+  }
+
   mock_resource "aws_cloudfront_vpc_origin" {
     defaults = {
       id  = "E2MOCKORIGIN"
